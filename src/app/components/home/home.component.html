@@ -1,0 +1,13 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">PelisApp</h1>
+        <p class="lead">Esta es una aplicacion de Palículas</p>
+    </div>
+</div>
+<div class="container mt-4" *ngIf="cartelera">
+    <app-galeria [peliculas]="cartelera | slice:0:6" titulo="Peliculas en Cartelera"></app-galeria>
+    <br>
+    <app-galeria [peliculas]="populares | slice:0:6" titulo="Peliculas más Populares"></app-galeria>
+    <br>
+    <app-galeria [peliculas]="popularesKids | slice:0:6" titulo="Peliculas más popuares entre los pequeños"></app-galeria>
+</div>

@@ -1,0 +1,22 @@
+<div class="container mt-5 text-center" *ngIf="peli">
+    <div class="row animated fadeIn fast">
+        <div class="col-md-5">
+            <h2>{{ peli.title }}</h2>
+            <img [src]="( peli | peliImage:true )" [alt]="peli.title" class="img-thumbnail img-fluid">
+        </div>
+        <div class="col-md-7 text-left">
+            <h3>Sinopsis</h3>
+            <p class="text-justify">{{ peli.overview }}</p>
+            <h3>Frase celebre</h3>
+            <p>{{ peli.tagline }}</p>
+            <h6>Popularidad:
+                <span class="badge badge-primary">{{ peli.popularity }}</span>
+            </h6>
+            <h6>Voto Promedio:
+                <span class="badge badge-primary">{{ peli.vote_average }}</span>
+            </h6>
+            <br>
+            <button class="btn btn-outline-danger" (click)="goBack()">Regresar</button>
+        </div>
+    </div>
+</div>

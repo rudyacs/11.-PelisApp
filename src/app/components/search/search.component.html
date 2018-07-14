@@ -1,0 +1,17 @@
+<div class="container mt-4">
+    <label for="buscar">Buscar</label>
+    <input #buscarTexto class="form-control" placeholder="Buscar película.." type="text" name="busqueda" id="buscar" (keyup.enter)="buscarPelicula(buscarTexto.value)" [(ngModel)]="buscar">
+    <div class="mt-5 animated fadeIn fast">
+        <div class="card-columns" *ngIf="_ps.peliculas">
+            <div class="card" *ngFor="let peli of _ps.peliculas, let i = index">
+                <img *ngIf="peli.backdrop_path && peli.overview " class="card-img-top" [src]="peli | peliImage" [alt]="peli.title">
+                <img *ngIf="!peli.backdrop_path || !peli.overview" class="card-img-top" [src]="peli | peliImage" [alt]="peli.title">
+                <div class="card-body">
+                    <h5 class="card-title">{{peli.title}}</h5>
+                    <p class="card-text text-justify">{{ peli.overview | slice:0:170 }}...</p>
+                    <button (click)="verDetalles(peli.id)" type="button" class="btn btn-outline-primary btn-block">Ver mas....</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
